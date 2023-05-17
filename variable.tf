@@ -44,7 +44,7 @@ variable "cloudwatch_logs_retention" {
 variable "volume_type" {
   type        = string
   description = "Volume type for EC2 instance default latest type"
-  default     = "gp3"
+  default     = "standard"
 }
 
 variable "volume_size" {
