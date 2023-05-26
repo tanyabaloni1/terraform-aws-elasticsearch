@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version=8.1.2
+version=7.17.8
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-"$version"-x86_64.rpm
 wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-"$version"-x86_64.rpm.sha512
 shasum -a 512 -c elasticsearch-"$version"-x86_64.rpm.sha512
@@ -82,11 +82,5 @@ sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install repository-s3
 sudo service elasticsearch start
 sudo /usr/share/elasticsearch/bin/elasticsearch
 
-wget https://artifacts.elastic.co/downloads/kibana/kibana-8.1.2-x86_64.rpm
-sudo rpm --install kibana-8.1.2-x86_64.rpm
-private_ip=`curl http://169.254.169.254/latest/meta-data/local-ipv4`
-echo "server.host: "$private_ip"">> /etc/kibana/kibana.yml
-echo "server.port: "5601""  >> /etc/kibana/kibana.yml
-echo "elasticsearch.hosts: [\"http://$private_ip:9200\"]"  >> /etc/kibana/kibana.yml
-systemctl enable --now kibana
+
 
